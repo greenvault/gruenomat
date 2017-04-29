@@ -218,7 +218,7 @@
 	</div>
     </div>
     
-    <p><small>Thesen mit <span class="glyphicon glyphicon-star" title="Sternchen"></span> fandest du besonders wichtig.<br> Wenn du auf den Button mit dem Namen der These klickst, bekommst du die Statements der Listen in einer Übersicht angezeigt.</small></p>
+    <p><small>Thesen mit <span class="glyphicon glyphicon-star" title="Sternchen"></span> fandest du besonders wichtig.<br> Wenn du auf den Button mit dem Namen der These klickst, bekommst du die Statements der GRÜNEN in einer Übersicht angezeigt.</small></p>
     
     <table class="table table-bordered" id="resulttable">
       <tr id="tableheader"><th> </th><th>Deine Wahl</th>
@@ -260,11 +260,12 @@
   
   <script type="text/javascript">
 	// page-specific
-	$('#resultlink').click(function() {
+    var $resultLink = $('#resultLink');
+	$resultLink.click(function() {
 		var $this = $(this);
 		$this.select();
 	});
-	$('#resultlink').val(location.protocol + '//' + location.host + location.pathname + "<?php echo $sharelink; ?>");
+	$resultLink.val(location.protocol + '//' + location.host + location.pathname + "<?php echo $sharelink; ?>");
 
 	
 	<?php if(!$bars_only){?>
@@ -274,9 +275,9 @@
       $('.multheseslong').hide();
       $('.tt').tooltip();
       
-      if(window.location.hash == '#overview'){
+      if(window.location.hash === '#overview'){
 		showOverview();
-      } else if(window.location.hash == '#detail'){
+      } else if(window.location.hash === '#detail'){
 		showDetail();
       }
       
