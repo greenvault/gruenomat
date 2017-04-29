@@ -121,10 +121,10 @@ function code_to_btnclass($int){
 		return 'btn-success';
 	}
 	if($int == 0){
-		return 'btn-info';
+		return 'btn-warning';
 	}
 	if($int == -1){
-		return 'btn-warning';
+		return 'btn-danger';
 	}
 }
     
