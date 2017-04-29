@@ -49,6 +49,9 @@ function readData(){
 	$('.input_explanation').each(function(index,value){
 		Singleton.instance.theses[index].x = $(value).val();
 	});
+	$('.input_answers').each(function(index,value){
+	    Singleton.instance.theses[index].a = $(value).val();
+    });
 	
 	
 	Singleton.instance.lists = {};
@@ -95,7 +98,7 @@ function readData(){
 
 function generateTheses(){
 	for(var key in Object.keys(Singleton.instance.theses)){
-		generateThesis(Singleton.instance.theses[key].l, Singleton.instance.theses[key].s, Singleton.instance.theses[key].x); 
+		generateThesis(Singleton.instance.theses[key].l, Singleton.instance.theses[key].s, Singleton.instance.theses[key].x, Singleton.instance.theses[key].a);
 	}
 }
 
@@ -106,10 +109,10 @@ function generateLists(){
 }
 
 function generateEmptyThesis(){
-	generateThesis("","","");
+	generateThesis("","","","");
 }
 
-function generateThesis(name, shortname, explanation){
+function generateThesis(name, shortname, explanation, answers){
 	var thesisdiv = '<div class="singlethesis">' + 
 	'	<div class="form-group">' + 
 	'		<label>These</label>' + 
@@ -122,7 +125,11 @@ function generateThesis(name, shortname, explanation){
 	'	<div class="form-group">' + 
 	'		<label>Erläuterung</label>' + 
 	'		<input type="text" class="form-control input_explanation" placeholder="Erläuterung" value="'+explanation+'">' + 
-	'	</div>' + 
+	'	</div>' +
+    '   <div class="form-group">' +
+    '       <label>Antwortmöglichkeiten (exakt drei, eine pro Zeile) </label>' +
+    '		<textarea class="form-control input_answers" placeholder="Antworten">'+answers+'</textarea>' +
+    '   </div>' +
 	'	<div class="form-group">' + 
 	'		<button type="button" class="btn btn-danger" onclick="deleteme(this)">Diese These löschen</button>' + 
 	'		<button type="button" class="btn btn-default" onclick="moveup(this)"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> Diese These nach <strong>oben</strong> verschieben</button>' + 
@@ -317,7 +324,8 @@ function loadThesis(number){
 	Singleton.instance.activeThesis = number-1;
 	thesesboxes.slideUp();
 	pagination.removeClass('active');
-	
+
+	setButtons(Singleton.instance.theses[Singleton.instance.activeThesis].a);
 	setClasses(Singleton.instance.answers[Singleton.instance.activeList][Singleton.instance.activeThesis].selection);
 	
 	thesesboxes.eq(number-1).slideDown();
@@ -349,28 +357,47 @@ function setClasses(code){
         case 'a':
         case 'e':
             $yes.addClass('btn-success');
-            $neutral.removeClass('btn-warning');
-            $no.removeClass('btn-danger');
+            $yes.removeClass('btn-default');
+            $neutral.addClass('btn-default');
+            $neutral.removeClass('btn-success');
+            $no.addClass('btn-default');
+            $no.removeClass('btn-success');
             break;
         case 'b':
         case 'f':
+            $yes.addClass('btn-default');
             $yes.removeClass('btn-success');
-            $neutral.addClass('btn-warning');
-            $no.removeClass('btn-danger');
+            $neutral.addClass('btn-success');
+            $neutral.removeClass('btn-default');
+            $no.addClass('btn-default');
+            $no.removeClass('btn-success');
             break;
         case 'c':
         case 'g':
+            $yes.addClass('btn-default');
             $yes.removeClass('btn-success');
-            $neutral.removeClass('btn-warning');
-            $no.addClass('btn-danger');
+            $neutral.addClass('btn-default');
+            $neutral.removeClass('btn-success');
+            $no.addClass('btn-success');
+            $no.removeClass('btn-default');
             break;
         case 'd':
         case 'h':
-            $yes.addClass('btn-success');
-            $neutral.addClass('btn-warning');
-            $no.addClass('btn-danger');
+            $yes.addClass('btn-default');
+            $yes.removeClass('btn-success');
+            $neutral.addClass('btn-default');
+            $neutral.removeClass('btn-success');
+            $no.addClass('btn-default');
+            $no.removeClass('btn-success');
             break;
 	}
+}
+
+function setButtons(answers) {
+    var answersArray = answers.split("\n");
+    $('#option1').text(answersArray[0]);
+    $('#option2').text(answersArray[1]);
+    $('#option3').text(answersArray[2]);
 }
 
 function setPaginationColors(){
