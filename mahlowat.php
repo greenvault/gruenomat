@@ -177,6 +177,8 @@ if (!$data_content) {
     var activeThesis = 0;
     var answerstring = '<?php echo $answerstring; ?>';
     var theses = <?php echo json_encode($theses); ?>;
+    var pagination = $('#navigation').find('li');
+    var thesesboxes = $('.singlethesis');
 
     $(function () {
         $('.tt').tooltip();
@@ -195,9 +197,6 @@ if (!$data_content) {
             event.preventDefault();
             $('.explic').toggle(200);
         });
-
-        var thesesboxes = $('.singlethesis');
-        var pagination = $('#navigation').find('li');
 
         resultArray = resultStringToArray(answerstring, thesesboxes.length);
 
