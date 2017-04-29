@@ -18,7 +18,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Mahlowat - FAQ</title>
+    <title>Green-o-mat - FAQ</title>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
     <meta content="">
     <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
@@ -32,37 +32,33 @@
   <script src="js/mahlowat.js"></script>
   
   <div class="container" style="margin-top: 20px;">
-      <img src="img/mahlowat_logo.png" title="Mahlowat Logo" class="pull-right" onclick="changeText()"/>
+      <img src="img/gruene-logo.jpg" title="GRÜNEN Logo" class="pull-right" onclick="changeText()"/>
 	<p id="spruch" class="pull-right"></p>
       <div class="bottom-buffer top-buffer">
     
     <h1>FAQ</h1>
 
-    <h4>Wer macht den Mahlowat?</h4>
-    <p>Lorem Ipsum.</p>
+    <h4>Wer macht den Green-o-mat?</h4>
+    <p>Motivierte Menschen der GRÜNEN.</p>
     
     <h4>Wer hat die Thesen erarbeitet?</h4>
-    <p>Lorem Ipsum.</p>
-    
-    <h4>Wo kommen die Positionen der Gruppen her?</h4>
-    <p>Den an der Wahl teilnehmenden Gruppen wurden die Thesen mit der Bitte um Stellungnahme zugeleitet. Neben der reinen Positionierung (Zustimmung/Neutral/Ablehnung/Keine Stellungnahme) konnten sie ihre Position auch in einem kurzen Absatz erläutern.</p>
-    <p>Für ihre Stellungnahmen zu den Thesen sind die Gruppen selbst verantwortlich.</p>
+    <p>Eine Arbeitsgruppe auf dem 5. Camp Netzbegrünung der GRÜNEN.</p>
     
     <h4>Von welcher Wahl reden wir hier überhaupt?</h4>
-    <p>Lorem Ipsum.</p>
+    <p>Bundestagswahl 2017</p>
     
     <h4>Wer hat das hier programmiert?</h4>
-    <p>Der <a href="http://hszemi.de" title="hszemi.de" target="_blank">Sven</a>, weil der das kann.</p>
+    <p>Der <a href="http://jim.2martens.de" title="jim.2martens.de" target="_blank">Jim</a>, weil der das kann.</p>
     
     <h4>Funktioniert das hier wie der "echte" Wahl-O-Mat der bpb?</h4>
-    <p>Es wurde versucht, die Punkteberechnung so wie beim "echten" Wahl-O-Mat zu gestalten.</p>
+    <p>Nein.</p>
     
     <h4>Wie werden die Punkte berechnet?</h4>
-    <p>Die Antworten der Testperson (das bist du) werden mit den vorgegebenen Antworten der Gruppen abgeglichen.</p>
+    <p>Die Antworten der Testperson (das bist du) werden mit den vorgegebenen Antworten der GRÜNEN abgeglichen.</p>
     <ul>
-      <li>Stimmt die Antwort überein, werden der Gruppe 2 Punkte gutgeschrieben;</li>
-      <li>Weicht die Antwort leicht ab (Zustimmung/Neutral oder Neutral/Ablehnung), wird der Gruppe 1 Punkt gutgeschrieben;</li>
-      <li>Sind die Antworten entgegengesetzt oder hat eine Gruppe eine Frage nicht beantwortet, gibt es keine Punkte für die Gruppe.</li>
+      <li>Stimmt die Antwort überein, werden den GRÜNEN 2 Punkte gutgeschrieben;</li>
+      <li>Weicht die Antwort leicht ab (Zustimmung/Neutral oder Neutral/Ablehnung), wird den GRÜNEN 1 Punkt gutgeschrieben;</li>
+      <li>Sind die Antworten entgegengesetzt, gibt es keine Punkte für die Gruppe.</li>
     </ul>
     <p>Eine Frage, die die Testperson übersprungen hat, wird nicht gewertet. Entsprechend gibt es dann insgesamt weniger Punkte zu erreichen.</p>
     <p>Eine Frage, die doppelt gewichtet werden soll, wird doppelt gewichtet, das heißt, für sie wird die doppelte Punktzahl gutgeschrieben (0/2/4). Entsprechend gibt es insgesamt mehr Punkte zu erreichen.</p>
@@ -81,7 +77,7 @@
     <h4>Ich habe einen Fehler gefunden!</h4>
     <p>Dann solltest du das melden. Wir freuen uns über sachdienliche Hinweise.</p>
 
-    <a class="btn btn-primary" href="<?php echo $back; ?>" onclick="callPage(event, '<?php echo $back; ?>')" title="Zurück zum Mahlowat">Zurück zum Mahlowat</a>
+    <a class="btn btn-primary" href="<?php echo $back; ?>" onclick="callPage(event, '<?php echo $back; ?>')" title="Zurück zum Mahlowat">Zurück zum Green-o-mat</a>
   </div>
   </div>
 
