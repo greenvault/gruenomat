@@ -1,4 +1,6 @@
-function Singleton() {  
+"use strict";
+
+function Singleton() {
 	if (typeof Singleton.instance === 'object') {
 		return Singleton.instance;
 	}
@@ -64,11 +66,11 @@ function readData(){
 	}
 	
 	// remove surplus list and/or thesis keys
-	for(listkey in Object.keys(Singleton.instance.answers)){
+	for(var listkey in Object.keys(Singleton.instance.answers)){
 		if(!(listkey in Singleton.instance.lists)){
 			delete Singleton.instance.answers[listkey];
 		} else {
-			for(thesiskey in Object.keys(Singleton.instance.answers[listkey])){
+			for(var thesiskey in Object.keys(Singleton.instance.answers[listkey])){
 					if(!(thesiskey in Singleton.instance.theses)){
 						delete Singleton.instance.answers[listkey][thesiskey];
 					}
@@ -92,13 +94,13 @@ function readData(){
 }
 
 function generateTheses(){
-	for(key in Object.keys(Singleton.instance.theses)){
+	for(var key in Object.keys(Singleton.instance.theses)){
 		generateThesis(Singleton.instance.theses[key].l, Singleton.instance.theses[key].s, Singleton.instance.theses[key].x); 
 	}
 }
 
 function generateLists(){
-	for(key in Object.keys(Singleton.instance.lists)){
+	for(var key in Object.keys(Singleton.instance.lists)){
 		generateList(Singleton.instance.lists[key].name, Singleton.instance.lists[key].name_x); 
 	}
 }
@@ -232,7 +234,7 @@ function createStep3(){
 	$('.tt').tooltip();
 	$('.explic').hide();
 	
-	thesesboxes = $('.thesis');
+	var thesesboxes = $('.thesis');
 	
 	
 	setPaginationColors();
@@ -271,14 +273,14 @@ function createStep3(){
 }
 
 function saveInput(){
-	for(key in Object.keys(Singleton.instance.answers[Singleton.instance.activeList])){
+	for(var key in Object.keys(Singleton.instance.answers[Singleton.instance.activeList])){
 		Singleton.instance.answers[Singleton.instance.activeList][key].statement = $('#input-'+key).val();
 	}
 }
 
 
 function setThesis(selection){
-	pagination = $('#navigation').find('li');
+	var pagination = $('#navigation').find('li');
 	Singleton.instance.answers[Singleton.instance.activeList][Singleton.instance.activeThesis].selection = selection;
 	pagination.eq(Singleton.instance.activeThesis).removeClass('pagination-yes pagination-neutral pagination-no');
 	pagination.eq(Singleton.instance.activeThesis).addClass(letter2paginationclass(selection));
@@ -287,8 +289,8 @@ function setThesis(selection){
 }
 
 function updateStatistics(){
-	answeredcount = 0;
-	for(i = 0; i < Object.keys(Singleton.instance.answers[Singleton.instance.activeList]).length; i++){
+	var answeredcount = 0;
+	for(var i = 0; i < Object.keys(Singleton.instance.answers[Singleton.instance.activeList]).length; i++){
 		if(Singleton.instance.answers[Singleton.instance.activeList][i].selection !== 'd'){
 			answeredcount++;
 		}
@@ -306,8 +308,8 @@ function prevThesis(){
 }
 
 function loadThesis(number){
-	thesesboxes = $('.thesis');
-	pagination = $('#navigation').find('li');
+	var thesesboxes = $('.thesis');
+	var pagination = $('#navigation').find('li');
 	if(number > thesesboxes.length){
 		number = 1;
 	}
@@ -374,16 +376,16 @@ function setClasses(code){
 }
 
 function setPaginationColors(){
-	answers = Singleton.instance.answers;
-	pagination = $('#navigation li');
+	var answers = Singleton.instance.answers;
+	var pagination = $('#navigation li');
 	pagination.removeClass("pagination-yes pagination-neutral pagination-no");
-	for(i = 0; i < Object.keys(answers[Singleton.instance.activeList]).length; i++){
+	for(var i = 0; i < Object.keys(answers[Singleton.instance.activeList]).length; i++){
 		pagination.eq(i).addClass(letter2paginationclass(answers[Singleton.instance.activeList][i]));
 	}
 }
 
 function makeListSelect(lists){
-	str = '<ul class="nav nav-tabs">';
+	var str = '<ul class="nav nav-tabs">';
 	
 	for(var i = 0; i < (Object.keys(lists).length); i = i + 1){
 		str += "<li role='presentation' class='listselector'><a href='#' onclick='loadList("+i+")'>"+lists[i].name_x+"</a></li>";
@@ -397,7 +399,7 @@ function loadList(id){
 	$('.listselector:eq('+id+')').addClass('active');
 	Singleton.instance.activeList = id;
 	var answers = Singleton.instance.answers;
-	for(i = 0; i < Object.keys(answers[Singleton.instance.activeList]).length; i++){
+	for(var i = 0; i < Object.keys(answers[Singleton.instance.activeList]).length; i++){
 		$('#input-'+i).val(answers[Singleton.instance.activeList][i].statement);
 	}
 	setPaginationColors();
@@ -406,7 +408,7 @@ function loadList(id){
 }
 
 function makePagination(theses_count){
-	str = '<ul id="navigation" class="pagination pagination-sm">';
+	var str = '<ul id="navigation" class="pagination pagination-sm">';
 	for(var i = 1; i < (theses_count+1); i = i + 1){
 		str += "<li><a href='#"+i+"' onclick='loadThesis("+i+")'>"+i+"</a></li>";
 	}
@@ -418,7 +420,7 @@ function makeThesesBox(){
 	var theses = Singleton.instance.theses;
 	var lists = Singleton.instance.lists;
 	for(var q_id = 0; q_id < Object.keys(theses).length; q_id++){
-		str = "<div id='thesis"+q_id+"' class='thesis'>";
+		var str = "<div id='thesis"+q_id+"' class='thesis'>";
 		str += "<h1>These "+(q_id+1)+"</h1>";
 		str += "<div class='well well-large statement'>";
 		str += "<p style='margin-bottom: 0px;' class='lead'>";
