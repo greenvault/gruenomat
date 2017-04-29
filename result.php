@@ -245,7 +245,8 @@ if (!$data_content) {
                     $reason = " ".$reasons[0];
                 }
                 else {
-                    $feedback = "Du bist ein hoffnungsloser Fall. Vergiss die Politik am besten gleich wieder.";
+                    $feedback = "Du bist ein hoffnungsloser Fall. Vergiss die Politik am besten gleich wieder. Überlass die Entscheidung lieber deinem Haustier.";
+                    $reason = "Mit den GRÜNEN gibts besseres Futter.";
                 }
                 echo $feedback;
                 ?>
