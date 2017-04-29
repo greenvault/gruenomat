@@ -172,7 +172,7 @@ if (!$data_content) {
 <script type="text/javascript">
     "use strict";
     $('#commit').click(function () {
-        resultArray = getResultArray();
+        var resultArray = getResultArray();
         gotoResultPage(resultArray);
     });
     $('.multheseslong').hide();
@@ -190,7 +190,7 @@ if (!$data_content) {
 
     function getResultArray() {
         var multipliers = $('.weight');
-        resultArray = resultStringToArray("<?php echo $answerstring;?>", multipliers.length);
+        var resultArray = resultStringToArray("<?php echo $answerstring;?>", multipliers.length);
         for (var i = 0; i < multipliers.length; i++) {
             if (multipliers.eq(i).hasClass('btn-info')) {
                 resultArray[i] = result2letter(resultArray[i], true);
