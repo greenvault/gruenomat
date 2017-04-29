@@ -76,7 +76,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Mahlowat - Ergebnis</title>
+    <title>Green-o-mat - Ergebnis</title>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
     <meta content="">
     <!--<link href="css/bootstrap.min.css" rel="stylesheet" media="screen">-->

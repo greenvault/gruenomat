@@ -81,7 +81,7 @@
   <head>
     <title>Green-o-mat</title>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-    <meta content="Mahlowat">
+    <meta content="Green-o-mat">
     <!--<link href="css/bootstrap.min.css" rel="stylesheet" media="screen">-->
     <link href="css/<?php echo $css[$css_id];?>" rel="stylesheet" media="screen">
     
@@ -113,7 +113,7 @@
 	</div>
   
   <div class="container" style="margin-top: 20px;">
-	<img src="img/mahlowat_logo.png" title="Mahlowat Logo" class="pull-right" onclick="changeText('mahlowat')"/>
+	<img src="img/gruene-logo.jpg" title="GRÜNEN Logo" class="pull-right" onclick="changeText('green-o-mat')" style="height: 125px" />
 	<p id="spruch" class="pull-right"></p>
 	<div class="bottom-buffer top-buffer">
   

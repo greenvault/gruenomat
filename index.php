@@ -35,7 +35,7 @@ $baseurl = "http://" . $_SERVER['SERVER_NAME'] . $uri_parts[0];
   
   <div class="text-center">
   
-    <img src="img/gruene-logo.jpg" title="GRÜNE Logo" />
+    <img src="img/gruene-logo.jpg" title="GRÜNE Logo" style="height: 125px" />
     
     <h1><small>Der</small> Green-o-mat</h1>
   </div>

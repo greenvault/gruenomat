@@ -105,19 +105,19 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Mahlowat - Ergebnis</title>
+    <title>Green-o-mat - Ergebnis</title>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-    <meta content="Mahlowat">
+    <meta content="Green-o-mat">
     
-    <meta name="image_src" content="img/mahlowat_logo.png"/>
-    <meta name="description" content="Mein Mahlowat-Ergebnis"/>
+    <meta name="image_src" content="img/gruene-logo.jpg"/>
+    <meta name="description" content="Mein Green-o-mat-Ergebnis"/>
     
     <meta property="og:title" content="Mahlowat"/>
     <meta property="og:type"  content="website"/>
-    <meta property="og:image" content="img/mahlowat_logo.png"/>
+    <meta property="og:image" content="img/gruene-logo.jpg"/>
     <meta property="og:url"   content=""/>
-    <meta property="og:site-name" content="akut-bonn.de"/>
-    <meta property="og:description" content="Mein Mahlowat-Ergebnis"/>
+    <meta property="og:site-name" content="2martens.de"/>
+    <meta property="og:description" content="Mein Green-o-mat-Ergebnis"/>
     
     
     <!--<link href="css/bootstrap.min.css" rel="stylesheet" media="screen">-->
@@ -135,7 +135,7 @@
   <body>
 
   <div class="container" style="margin-top: 20px;">
-      <img src="img/mahlowat_logo.png" title="Mahlowat Logo" class="pull-right" onclick="changeText()"/>
+      <img src="img/gruene-logo.jpg" title="GRÜNEN Logo" class="pull-right" onclick="changeText()"/>
 	<p id="spruch" class="pull-right"></p>
 	
       <div class="bottom-buffer top-buffer">
