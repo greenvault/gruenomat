@@ -219,6 +219,31 @@ if (!$data_content) {
         </div>
 
         <?php if (!$bars_only) { ?>
+            <p><strong>Feedback:&nbsp;</strong>
+                <?php
+                $points = $top;
+                $feedback = "";
+                if ($points == 30) {
+                    $feedback = "Hervorragend. Du bist perfekt für die GRÜNEN geeignet.";
+                }
+                elseif ($points >= 22) {
+                    $feedback = "Mit ein wenig Übung wirst Du es ganz nach vorne schaffen bei den GRÜNEN.";
+                }
+                elseif ($points >= 16) {
+                    $feedback = "Du bist besser als die meisten, aber es ist noch Luft nach oben.";
+                }
+                elseif ($points >= 10) {
+                    $feedback = "Du hast noch einiges zu lernen, aber es bestehen Chancen.";
+                }
+                else {
+                    $feedback = "Du bist ein hoffnungsloser Fall. Vergiss die Politik am besten gleich wieder.";
+                }
+                echo $feedback;
+                ?>
+            </p>
+        <?php } ?>
+
+        <?php if (!$bars_only) { ?>
             <div id="result-table">
                 <div class="panel panel-default">
                     <div class="panel-body">
