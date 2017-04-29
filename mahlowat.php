@@ -124,19 +124,22 @@
 		<p class='text-center'><button id="weight" type="button" class="btn btn-default" data-toggle="button">These doppelt gewichten</button></p>
 
 			<div class="row">
-			<div class="col-xs-12 col-sm-2 col-md-2 col-md-offset-2 col-sm-offset-2 option">
-                <button id='yes' type='submit' class='btn btn-default btn-block' name='yes' onclick="nextThesis('a')"><span id="option1">Zustimmung</span></button>
-			</div>
-			<div class="col-xs-12 col-sm-2 col-md-2 option">
-				<button id='neutral' type='submit' class='btn btn-default btn-block' name='neutral' onclick="nextThesis('b')"><span id="option2">Neutral</span></button>
-			</div>
-			<div class="col-xs-12 col-sm-2 col-md-2 option">
-				<button id='no' type='submit' class='btn btn-default btn-block' name='no' onclick="nextThesis('c')"><span id="option3">Nein</span></button>
-			</div>
-			<div class="col-xs-12 col-sm-2 col-md-2 option">
-				<button id='skip' type='submit' class='btn btn-default btn-block' name='skip' onclick="nextThesis('d')"><span class="glyphicon glyphicon-share-alt"></span> Überspringen</button>
-			</div>
-			</div>
+                <div class="col-xs-12 col-sm-12 col-md-12 option">
+                    <button id='yes' type='submit' class='btn btn-default btn-block' name='yes' onclick="nextThesis('a')"><span id="option1">Zustimmung</span></button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 option">
+                    <button id='neutral' type='submit' class='btn btn-default btn-block' name='neutral' onclick="nextThesis('b')"><span id="option2">Neutral</span></button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 option">
+                    <button id='no' type='submit' class='btn btn-default btn-block' name='no' onclick="nextThesis('c')"><span id="option3">Nein</span></button>
+                </div>
+            </div>
+
+        <p class="text-center"><button id='skip' type='submit' class='btn btn-default' name='skip' onclick="nextThesis('d')"><span class="glyphicon glyphicon-share-alt"></span> Überspringen</button></p>
 		
 		
 		<div class="text-right">
