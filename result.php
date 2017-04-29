@@ -135,7 +135,7 @@
   <body>
 
   <div class="container" style="margin-top: 20px;">
-      <img src="img/gruene-logo.jpg" title="GRÜNEN Logo" class="pull-right" onclick="changeText()"/>
+      <img src="img/gruene-logo.jpg" title="GRÜNEN Logo" class="pull-right" onclick="changeText()" style="height: 125px;" />
 	<p id="spruch" class="pull-right"></p>
 	
       <div class="bottom-buffer top-buffer">
