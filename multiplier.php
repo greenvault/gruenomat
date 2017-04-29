@@ -163,6 +163,7 @@
   </div>
   
   <script type="text/javascript">
+      "use strict";
 	$('#commit').click(function(){
 		resultArray = getResultArray();
 		gotoResultPage(resultArray);
@@ -173,7 +174,7 @@
 	$('.weight').click(function(){
 		$(this).toggleClass('btn-default');
 		$(this).toggleClass('btn-info');
-		if($(this).text() == 'These doppelt gewichten'){
+		if($(this).text() === 'These doppelt gewichten'){
 			$(this).text('These wird doppelt gewichtet');
 		} else {
 			$(this).text('These doppelt gewichten');
@@ -181,9 +182,9 @@
 	});
 	
 	function getResultArray(){
-		multipliers = $('.weight');
+		var multipliers = $('.weight');
 		resultArray = resultStringToArray("<?php echo $answerstring;?>", multipliers.length);
-		for(i = 0; i < multipliers.length; i++){
+		for(var i = 0; i < multipliers.length; i++){
 			if(multipliers.eq(i).hasClass('btn-info')){
 				resultArray[i] = result2letter(resultArray[i], true);
 			} else {
@@ -198,8 +199,8 @@
 	}
 	
 	function gotoResultPage(resultArray){
-		count = '<?php echo $count; ?>';
-		if(count == 'true') {
+		var count = '<?php echo $count; ?>';
+		if(count === 'true') {
 			callResult(resultArray, true);
 		} else {
 			callResult(resultArray, false);
@@ -207,9 +208,9 @@
 	}
 	
 	function callResult(resultArray, count){
-		ans = array2str(resultArray);
+		var ans = array2str(resultArray);
 		if(count){
-			url = "count.php?ans=" + ans;
+			var url = "count.php?ans=" + ans;
 			jQuery.get(url,function( data ) {
 				callPage(null, 'result.php', ans, 'true');
 			});
