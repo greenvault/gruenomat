@@ -79,10 +79,10 @@ function get_list_result_td($data, $listid, $thesisid){
 		return "<td class='hidden-xs hidden-sm $listclass'><a class='btn btn-success btn-block disabled listanswer' ></a></td>\n";
 	}
 	if($vote == 0){
-		return "<td class='hidden-xs hidden-sm $listclass'><a class='btn btn-success btn-block disabled listanswer' ></a></td>\n";
+		return "<td class='hidden-xs hidden-sm $listclass'><a class='btn btn-warning btn-block disabled listanswer' ></a></td>\n";
 	}
 	if($vote == -1){
-		return "<td class='hidden-xs hidden-sm $listclass'><a class='btn btn-success btn-block disabled listanswer' ></a></td>\n";
+		return "<td class='hidden-xs hidden-sm $listclass'><a class='btn btn-danger btn-block disabled listanswer' ></a></td>\n";
 	}
 }
 
