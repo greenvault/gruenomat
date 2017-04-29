@@ -359,26 +359,26 @@ function setClasses(code){
             $yes.addClass('btn-success');
             $yes.removeClass('btn-default');
             $neutral.addClass('btn-default');
-            $neutral.removeClass('btn-success');
+            $neutral.removeClass('btn-info');
             $no.addClass('btn-default');
-            $no.removeClass('btn-success');
+            $no.removeClass('btn-warning');
             break;
         case 'b':
         case 'f':
             $yes.addClass('btn-default');
             $yes.removeClass('btn-success');
-            $neutral.addClass('btn-success');
+            $neutral.addClass('btn-info');
             $neutral.removeClass('btn-default');
             $no.addClass('btn-default');
-            $no.removeClass('btn-success');
+            $no.removeClass('btn-warning');
             break;
         case 'c':
         case 'g':
             $yes.addClass('btn-default');
             $yes.removeClass('btn-success');
             $neutral.addClass('btn-default');
-            $neutral.removeClass('btn-success');
-            $no.addClass('btn-success');
+            $neutral.removeClass('btn-info');
+            $no.addClass('btn-warning');
             $no.removeClass('btn-default');
             break;
         case 'd':
@@ -386,9 +386,9 @@ function setClasses(code){
             $yes.addClass('btn-default');
             $yes.removeClass('btn-success');
             $neutral.addClass('btn-default');
-            $neutral.removeClass('btn-success');
+            $neutral.removeClass('btn-info');
             $no.addClass('btn-default');
-            $no.removeClass('btn-success');
+            $no.removeClass('btn-warning');
             break;
 	}
 }
