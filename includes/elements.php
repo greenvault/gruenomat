@@ -76,13 +76,13 @@ function get_list_result_td($data, $listid, $thesisid){
 		return "<td class='hidden-xs hidden-sm $listclass'><a class='btn btn-default btn-block disabled listanswer' >-</a></td>\n";
 	}
 	if($vote == 1){
-		return "<td class='hidden-xs hidden-sm $listclass'><a class='btn btn-success btn-block disabled listanswer' ><span class='glyphicon glyphicon-thumbs-up'></span></a></td>\n";
+		return "<td class='hidden-xs hidden-sm $listclass'><a class='btn btn-success btn-block disabled listanswer' ></a></td>\n";
 	}
 	if($vote == 0){
-		return "<td class='hidden-xs hidden-sm $listclass'><a class='btn btn-warning btn-block disabled listanswer' ><span class='glyphicon glyphicon-tree-deciduous'></span></a></td>\n";
+		return "<td class='hidden-xs hidden-sm $listclass'><a class='btn btn-success btn-block disabled listanswer' ></a></td>\n";
 	}
 	if($vote == -1){
-		return "<td class='hidden-xs hidden-sm $listclass'><a class='btn btn-danger btn-block disabled listanswer' ><span class='glyphicon glyphicon-thumbs-down'></i></a></td>\n";
+		return "<td class='hidden-xs hidden-sm $listclass'><a class='btn btn-success btn-block disabled listanswer' ></a></td>\n";
 	}
 }
 
@@ -114,17 +114,17 @@ function get_list_statement($data, $listid, $thesisid){
 }
 
 function code_to_btnclass($int){
-	if($int === 'skip'){
+    if($int === 'skip'){
 		return 'btn-default';
 	}
 	if($int == 1){
 		return 'btn-success';
 	}
 	if($int == 0){
-		return 'btn-warning';
+		return 'btn-info';
 	}
 	if($int == -1){
-		return 'btn-danger';
+		return 'btn-warning';
 	}
 }
     
