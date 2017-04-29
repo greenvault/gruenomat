@@ -209,7 +209,6 @@ if (!$data_content) {
                 <?php
                 $top = calculate_points($data['answers'][0], $answers);
                 for ($i = 0; $i < sizeof($data['answers']); $i++) {
-                    (calculate_points($data['answers'][$i], $answers) == $top) ? $class = "success" : $class = "";
                     print_list_result_bar($data, $i, $answers, $class);
                     echo "\n";
                 }
