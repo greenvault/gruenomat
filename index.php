@@ -41,7 +41,7 @@ $baseurl = "http://" . $_SERVER['SERVER_NAME'] . $uri_parts[0];
   </div>
     <p>Mit dem Green-o-mat könnt Ihr überprüfen, wie gut die GRÜNEN zu Euch oder Ihr zu den GRÜNEN passt.</p>
     
-    <p class="text-center"><a class="btn btn-large btn-primary" href="mahlowat.php" title="Mahlowat starten">Mit der Befragung beginnen!</a></p>
+    <p class="text-center"><a class="btn btn-large btn-primary" href="mahlowat.php" title="Green-o-mat starten">Mit der Befragung beginnen!</a></p>
     
     <p class="text-center"><a href="faq.php" title="Fragen und Antworten"><small>FAQ</small></a></p>
     
