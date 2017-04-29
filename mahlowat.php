@@ -223,10 +223,7 @@
 	}
 	
 	function nextThesis(selection){
-		multiply = false;
-		if($('#weight').hasClass('active')){
-			multiply = true;
-		}
+		multiply = $('#weight').hasClass('active');
 		resultArray[activeThesis] = result2letter(selection, multiply);
 		pagination.eq(activeThesis).removeClass('pagination-yes pagination-neutral pagination-no');
 		pagination.eq(activeThesis).addClass(letter2paginationclass(selection));
@@ -289,8 +286,10 @@
             $weight.addClass('active');
             $weight.text('These wird doppelt gewichtet');
 		}
+        var $yes = $('#yes');
+        var $neutral = $('#neutral');
+        var $no = $('#no');
 		switch (code){
-		    var $yes = $('#yes'), $no = $('#no'), $neutral = $('#neutral');
 			case 'a':
 			case 'e':
 				$yes.addClass('btn-success');
