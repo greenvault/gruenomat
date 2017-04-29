@@ -59,7 +59,7 @@ function readData(){
 		Singleton.instance.lists[index].name_x = $(value).val();
 	});
 	
-	if(Singleton.instance.answers == null){
+	if(Singleton.instance.answers === null){
 		Singleton.instance.answers = {};
 	}
 	
@@ -249,7 +249,7 @@ function createStep3(){
 	
 	$('[id^=input-]').change(function(){
 		saveInput();
-	})
+	});
 	
 	updateStatistics();
 	
@@ -278,7 +278,7 @@ function saveInput(){
 
 
 function setThesis(selection){
-	pagination = $('#navigation li');
+	pagination = $('#navigation').find('li');
 	Singleton.instance.answers[Singleton.instance.activeList][Singleton.instance.activeThesis].selection = selection;
 	pagination.eq(Singleton.instance.activeThesis).removeClass('pagination-yes pagination-neutral pagination-no');
 	pagination.eq(Singleton.instance.activeThesis).addClass(letter2paginationclass(selection));
@@ -289,7 +289,7 @@ function setThesis(selection){
 function updateStatistics(){
 	answeredcount = 0;
 	for(i = 0; i < Object.keys(Singleton.instance.answers[Singleton.instance.activeList]).length; i++){
-		if(Singleton.instance.answers[Singleton.instance.activeList][i].selection != 'd'){
+		if(Singleton.instance.answers[Singleton.instance.activeList][i].selection !== 'd'){
 			answeredcount++;
 		}
 	}
@@ -307,7 +307,7 @@ function prevThesis(){
 
 function loadThesis(number){
 	thesesboxes = $('.thesis');
-	pagination = $('#navigation li');
+	pagination = $('#navigation').find('li');
 	if(number > thesesboxes.length){
 		number = 1;
 	}
@@ -344,31 +344,32 @@ function letter2paginationclass(letter){
 }
 
 function setClasses(code){
-	switch (code){
-		case 'a':
-		case 'e':
-			$('#yes').addClass('btn-success');
-			$('#neutral').removeClass('btn-warning');
-			$('#no').removeClass('btn-danger');
-			break;
-		case 'b':
-		case 'f':
-			$('#yes').removeClass('btn-success');
-			$('#neutral').addClass('btn-warning');
-			$('#no').removeClass('btn-danger');
-			break;
-		case 'c':
-		case 'g':
-			$('#yes').removeClass('btn-success');
-			$('#neutral').removeClass('btn-warning');
-			$('#no').addClass('btn-danger');
-			break;
-		case 'd':
-		case 'h':
-			$('#yes').addClass('btn-success');
-			$('#neutral').addClass('btn-warning');
-			$('#no').addClass('btn-danger');
-			break;
+    var $yes = $('#yes'), $no = $('#no'), $neutral = $('#neutral');
+    switch (code){
+        case 'a':
+        case 'e':
+            $yes.addClass('btn-success');
+            $neutral.removeClass('btn-warning');
+            $no.removeClass('btn-danger');
+            break;
+        case 'b':
+        case 'f':
+            $yes.removeClass('btn-success');
+            $neutral.addClass('btn-warning');
+            $no.removeClass('btn-danger');
+            break;
+        case 'c':
+        case 'g':
+            $yes.removeClass('btn-success');
+            $neutral.removeClass('btn-warning');
+            $no.addClass('btn-danger');
+            break;
+        case 'd':
+        case 'h':
+            $yes.addClass('btn-success');
+            $neutral.addClass('btn-warning');
+            $no.addClass('btn-danger');
+            break;
 	}
 }
 
@@ -416,7 +417,7 @@ function makePagination(theses_count){
 function makeThesesBox(){
 	var theses = Singleton.instance.theses;
 	var lists = Singleton.instance.lists;
-	for(q_id = 0; q_id < Object.keys(theses).length; q_id++){
+	for(var q_id = 0; q_id < Object.keys(theses).length; q_id++){
 		str = "<div id='thesis"+q_id+"' class='thesis'>";
 		str += "<h1>These "+(q_id+1)+"</h1>";
 		str += "<div class='well well-large statement'>";
@@ -425,7 +426,7 @@ function makeThesesBox(){
 		str += theses[q_id].l;
 
 		str += "</p>";
-		if(theses[q_id].x != ""){
+		if(theses[q_id].x !== ""){
 			str += "<button class='btn btn-link explanationbutton'>Erklärung</button>\n";
 			str += "<div class='explic'>"+theses[q_id].x+"</div>";
 		}
