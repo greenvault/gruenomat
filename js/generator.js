@@ -158,8 +158,6 @@ function generateList(name, shortname){
 }
   
 $(function(){
-	var singleton = new Singleton();
-
 	$.getJSON( "config/data.json", function(data){
 		data.activeThesis = 0;
 		data.activeList = 0;
@@ -212,7 +210,7 @@ $(function(){
 	});
 
 	$('#generate').click(function(){
-		var copy = JSON.parse(JSON.stringify(Singleton.instance))
+		var copy = JSON.parse(JSON.stringify(Singleton.instance));
 		delete copy.activeThesis;
 		delete copy.activeList;
 		var jsonstring = JSON.stringify(copy);
@@ -377,7 +375,7 @@ function setClasses(code){
 
 function setPaginationColors(){
 	var answers = Singleton.instance.answers;
-	var pagination = $('#navigation li');
+	var pagination = $('#navigation').find('li');
 	pagination.removeClass("pagination-yes pagination-neutral pagination-no");
 	for(var i = 0; i < Object.keys(answers[Singleton.instance.activeList]).length; i++){
 		pagination.eq(i).addClass(letter2paginationclass(answers[Singleton.instance.activeList][i]));
@@ -418,12 +416,11 @@ function makePagination(theses_count){
     
 function makeThesesBox(){
 	var theses = Singleton.instance.theses;
-	var lists = Singleton.instance.lists;
 	for(var q_id = 0; q_id < Object.keys(theses).length; q_id++){
 		var str = "<div id='thesis"+q_id+"' class='thesis'>";
 		str += "<h1>These "+(q_id+1)+"</h1>";
 		str += "<div class='well well-large statement'>";
-		str += "<p style='margin-bottom: 0px;' class='lead'>";
+		str += "<p style='margin-bottom: 0;' class='lead'>";
 		
 		str += theses[q_id].l;
 
