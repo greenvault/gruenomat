@@ -123,7 +123,7 @@ function generateThesis(name, shortname, explanation, answers){
 	'		<input type="text" class="form-control input_thesis_short" placeholder="These (Kurzname)" value="'+shortname+'">' + 
 	'	</div>' + 
 	'	<div class="form-group">' + 
-	'		<label>Erläuterung</label>' + 
+	'		<label>Erläuterung</label>' +
 	'		<input type="text" class="form-control input_explanation" placeholder="Erläuterung" value="'+explanation+'">' + 
 	'	</div>' +
     '   <div class="form-group">' +
@@ -257,6 +257,10 @@ function createStep3(){
 	$('[id^=input-]').change(function(){
 		saveInput();
 	});
+
+    $('[id^=reason-]').change(function(){
+        saveInput();
+    });
 	
 	updateStatistics();
 	
@@ -280,6 +284,7 @@ function createStep3(){
 function saveInput(){
 	for(var key in Object.keys(Singleton.instance.answers[Singleton.instance.activeList])){
 		Singleton.instance.answers[Singleton.instance.activeList][key].statement = $('#input-'+key).val();
+        Singleton.instance.answers[Singleton.instance.activeList][key].reason = $('#reason-'+key).val();
 	}
 }
 
@@ -461,9 +466,15 @@ function makeThesesBox(){
 	
 		str += "<div class='row'>";
 		str += "<div class='col-xs-12 col-sm-12 col-md-8 col-md-offset-2'>";
-		str += "<textarea id='input-"+q_id+"' name='comments["+q_id+"]' class='form-control' rows='3' placeholder='Hier die Begründung eingeben...'></textarea>";
+		str += "<textarea id='input-"+q_id+"' name='comments["+q_id+"]' class='form-control' rows='3' placeholder='Hier die inhaltliche Argumentation eingeben...'></textarea>";
 		str += "</div>";
 		str += "</div>";
+
+        str += "<div class='row'>";
+        str += "<div class='col-xs-12 col-sm-12 col-md-8 col-md-offset-2'>";
+        str += "<textarea id='reason-"+q_id+"' name='reasons["+q_id+"]' class='form-control' rows='3' placeholder='Hier den Grund für die Wahl der GRÜNEN eingeben...'></textarea>";
+        str += "</div>";
+        str += "</div>";
 	
 		str += "</div>";
 		$('#thesesbox').append(str);

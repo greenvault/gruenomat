@@ -176,7 +176,17 @@ function vec_mul($a, $b){
 	}
 }
     
-    
+function get_reasons($data, $answers) {
+	$reasons = [];
+	for ($i = 0; $i < sizeof($data['answers'][0]); $i++) {
+		$answer = $data['answers'][0][$i];
+		if ($answer['selection'] != $answers[$i]) {
+			continue;
+		}
+		$reasons[$i] = $answer['reason'];
+	}
+	return $reasons;
+}
     
 function sort_lists_by_points($data, $answers){
 	$offset = 1/floatval(sizeof($data['lists']));

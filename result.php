@@ -222,22 +222,37 @@ if (!$data_content) {
                 <?php
                 $points = $top;
                 $feedback = "";
+                $reason = "";
+                $reasons = get_reasons($data, $answers);
+                shuffle($reasons);
                 if ($points == 30) {
                     $feedback = "Hervorragend. Du bist perfekt für die GRÜNEN geeignet.";
                 }
                 elseif ($points >= 22) {
                     $feedback = "Mit ein wenig Übung wirst Du es ganz nach vorne schaffen bei den GRÜNEN.";
+                    $reason = " ".$reasons[0];
                 }
                 elseif ($points >= 16) {
-                    $feedback = "Du bist besser als die meisten, aber es ist noch Luft nach oben.";
+                    $feedback = "Du bist besser als die Meisten, aber es gibt noch einige Unstimmigkeiten. Die Wahl der GRÜNEN lohnt sich dennoch.";
+                    $reason = " ".$reasons[0];
                 }
                 elseif ($points >= 10) {
-                    $feedback = "Du hast noch einiges zu lernen, aber es bestehen Chancen.";
+                    $feedback = "Du hast noch einiges zu lernen, aber auch für dich lohnt sich die Wahl der GRÜNEN.";
+                    $reason = " ".$reasons[0];
+                }
+                elseif ($points >= 2) {
+                    $feedback = "Du bist ein schwieriger Fall, aber selbst für Dich bestehen Chancen.";
+                    $reason = " ".$reasons[0];
                 }
                 else {
                     $feedback = "Du bist ein hoffnungsloser Fall. Vergiss die Politik am besten gleich wieder.";
                 }
                 echo $feedback;
+                ?>
+            </p>
+            <p><strong>Grund für die Wahl der GRÜNEN:&nbsp;</strong>
+                <?php
+                    echo $reason;
                 ?>
             </p>
         <?php } ?>
