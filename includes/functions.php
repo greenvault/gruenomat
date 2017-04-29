@@ -127,7 +127,7 @@ function calculate_points($list, $answers){
 	/*  my = skip:                skip / skip
 	*  my != skip && list = skip: +0 / +0
 	* |my - list| = 0:            +2 / +4
-	* |my - list| = 1:            +1 / +2
+	* |my - list| = 1:            +1 / +2; disabled this case
 	* |my - list| = 2:            +0 / +0
 	*/
 	for($i = 0; $i < $max; $i = $i + 1){
@@ -140,6 +140,9 @@ function calculate_points($list, $answers){
 			$pointvector[$i] = 0;
 		} else { 
 			$pointvector[$i] = 2-abs(char_to_value($answers[$i])-$value);
+			if ($pointvector[$i] == 1) {
+			    $pointvector[$i] = 0;
+            }
 		}
 	}
 	
