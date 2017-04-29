@@ -125,13 +125,13 @@
 
 			<div class="row">
 			<div class="col-xs-12 col-sm-2 col-md-2 col-md-offset-2 col-sm-offset-2 option">
-				<button id='yes' type='submit' class='btn btn-success btn-block' name='yes' onclick="nextThesis('a')"><span class="glyphicon glyphicon-thumbs-up"></span> Zustimmung</button>
+                <button id='yes' type='submit' class='btn btn-default btn-block' name='yes' onclick="nextThesis('a')"><span id="option1">Zustimmung</span></button>
 			</div>
 			<div class="col-xs-12 col-sm-2 col-md-2 option">
-				<button id='neutral' type='submit' class='btn btn-warning btn-block' name='neutral' onclick="nextThesis('b')"><span class="glyphicon glyphicon-tree-deciduous"></span> Neutral</button>
+				<button id='neutral' type='submit' class='btn btn-default btn-block' name='neutral' onclick="nextThesis('b')"><span id="option2">Neutral</span></button>
 			</div>
 			<div class="col-xs-12 col-sm-2 col-md-2 option">
-				<button id='no' type='submit' class='btn btn-danger btn-block' name='no' onclick="nextThesis('c')"><span class="glyphicon glyphicon-thumbs-down"></span> Ablehnung</button>
+				<button id='no' type='submit' class='btn btn-default btn-block' name='no' onclick="nextThesis('c')"><span id="option3">Nein</span></button>
 			</div>
 			<div class="col-xs-12 col-sm-2 col-md-2 option">
 				<button id='skip' type='submit' class='btn btn-default btn-block' name='skip' onclick="nextThesis('d')"><span class="glyphicon glyphicon-share-alt"></span> Überspringen</button>
@@ -155,6 +155,7 @@
 	var resultArray;
 	var activeThesis = 0;
 	var answerstring = '<?php echo $answerstring; ?>';
+	var theses = <?php echo json_encode($theses); ?>;
 	
 	$(function(){
 		$('.tt').tooltip();
@@ -244,6 +245,7 @@
 		pagination.removeClass('active');
 		
 		setClasses(resultArray[activeThesis]);
+		setButtons(theses[activeThesis].a);
 		
 		thesesboxes.eq(number-1).show();
 		pagination.eq(number-1).addClass('active');
@@ -271,6 +273,13 @@
 				break;
 		}
 	}
+
+    function setButtons(answers) {
+        var answersArray = answers.split("\n");
+        $('#option1').text(answersArray[0]);
+        $('#option2').text(answersArray[1]);
+        $('#option3').text(answersArray[2]);
+    }
 	
 	function setClasses(code){
 		$('.explic').hide();
@@ -292,27 +301,39 @@
 		switch (code){
 			case 'a':
 			case 'e':
-				$yes.addClass('btn-success');
-				$neutral.removeClass('btn-warning');
-				$no.removeClass('btn-danger');
+                $yes.addClass('btn-success');
+                $yes.removeClass('btn-default');
+                $neutral.addClass('btn-default');
+                $neutral.removeClass('btn-info');
+                $no.addClass('btn-default');
+                $no.removeClass('btn-warning');
 				break;
 			case 'b':
 			case 'f':
-				$yes.removeClass('btn-success');
-				$neutral.addClass('btn-warning');
-				$no.removeClass('btn-danger');
+                $yes.addClass('btn-default');
+                $yes.removeClass('btn-success');
+                $neutral.addClass('btn-info');
+                $neutral.removeClass('btn-default');
+                $no.addClass('btn-default');
+                $no.removeClass('btn-warning');
 				break;
 			case 'c':
 			case 'g':
-				$yes.removeClass('btn-success');
-				$neutral.removeClass('btn-warning');
-				$no.addClass('btn-danger');
+                $yes.addClass('btn-default');
+                $yes.removeClass('btn-success');
+                $neutral.addClass('btn-default');
+                $neutral.removeClass('btn-info');
+                $no.addClass('btn-warning');
+                $no.removeClass('btn-default');
 				break;
 			case 'd':
 			case 'h':
-				$yes.addClass('btn-success');
-				$neutral.addClass('btn-warning');
-				$no.addClass('btn-danger');
+                $yes.addClass('btn-default');
+                $yes.removeClass('btn-success');
+                $neutral.addClass('btn-default');
+                $neutral.removeClass('btn-info');
+                $no.addClass('btn-default');
+                $no.removeClass('btn-warning');
 				break;
 		}
 	}
