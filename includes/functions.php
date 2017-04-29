@@ -5,7 +5,7 @@ function count_equal_answers($list, $votes){
 	$count = 0;
 	
 	for($i = 0; $i < $len; $i++){
-		if($list[$i] == $votes[$i] and !('skip' === $my[$i])){
+		if($list[$i] == $votes[$i] and !('skip' === $votes[$i])){
 			$count++;
 		}
 	}
@@ -29,7 +29,7 @@ function count_contrary_answers($list, $votes){
 function count_relevant_answers($votes){
 	$count = 0;
 	for($i = 0; $i < sizeof($votes); $i++){
-		if(!('skip' === $my[$i])){
+		if(!('skip' === $votes[$i])){
 			$count++;
 		}
 	}
