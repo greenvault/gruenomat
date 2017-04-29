@@ -159,13 +159,14 @@
 	$(function(){
 		$('.tt').tooltip();
 		$('.explic').hide();
-		$('#weight').click(function(){
-			$('#weight').toggleClass('btn-default');
-			$('#weight').toggleClass('btn-info');
-			if($('#weight').text() == 'These doppelt gewichten'){
-				$('#weight').text('These wird doppelt gewichtet');
+        var $weight = $('#weight');
+        $weight.click(function(){
+			$weight.toggleClass('btn-default');
+            $weight.toggleClass('btn-info');
+			if ($weight.text() === 'These doppelt gewichten') {
+                $weight.text('These wird doppelt gewichtet');
 			} else {
-				$('#weight').text('These doppelt gewichten');
+                $weight.text('These doppelt gewichten');
 			}
 		});
 		$('.explanationbutton').click(function(event){
@@ -174,7 +175,7 @@
 		});
 		
 		thesesboxes = $('.singlethesis');	
-		pagination = $('#navigation li');
+		pagination = $('#navigation').find('li');
 		
 		resultArray = resultStringToArray(answerstring, thesesboxes.length);
 		
@@ -183,7 +184,7 @@
 		// Remove the # from the hash, as different browsers may or may not include it
 		var hash = location.hash.replace('#','');
 		
-		if(hash != '' && jQuery.isNumeric(hash)){
+		if(hash !== '' && jQuery.isNumeric(hash)){
 			// Show the hash if it's set
 			loadThesis(hash);
 		} else {
@@ -194,9 +195,9 @@
 	
 	function gotoResultPage(result){
 		count = '<?php echo $count; ?>';
-		if(count != 'true' && count != 'false'){
+		if(count !== 'true' && count !== 'false'){
 			$('#savemodal').modal('show');
-		} else if(count == 'true') {
+		} else if(count === 'true') {
 			callResult(true);
 		} else {
 			callResult(false);
@@ -276,41 +277,43 @@
 	
 	function setClasses(code){
 		$('.explic').hide();
+		var $weight = $('#weight');
 		if(code < 'e'){
-			$('#weight').removeClass('btn-info');
-			$('#weight').addClass('btn-default');
-			$('#weight').removeClass('active');
-			$('#weight').text('These doppelt gewichten');
+            $weight.removeClass('btn-info');
+            $weight.addClass('btn-default');
+            $weight.removeClass('active');
+            $weight.text('These doppelt gewichten');
 		} else {
-			$('#weight').addClass('btn-info');
-			$('#weight').removeClass('btn-default');
-			$('#weight').addClass('active');
-			$('#weight').text('These wird doppelt gewichtet');
+            $weight.addClass('btn-info');
+            $weight.removeClass('btn-default');
+            $weight.addClass('active');
+            $weight.text('These wird doppelt gewichtet');
 		}
 		switch (code){
+		    var $yes = $('#yes'), $no = $('#no'), $neutral = $('#neutral');
 			case 'a':
 			case 'e':
-				$('#yes').addClass('btn-success');
-				$('#neutral').removeClass('btn-warning');
-				$('#no').removeClass('btn-danger');
+				$yes.addClass('btn-success');
+				$neutral.removeClass('btn-warning');
+				$no.removeClass('btn-danger');
 				break;
 			case 'b':
 			case 'f':
-				$('#yes').removeClass('btn-success');
-				$('#neutral').addClass('btn-warning');
-				$('#no').removeClass('btn-danger');
+				$yes.removeClass('btn-success');
+				$neutral.addClass('btn-warning');
+				$no.removeClass('btn-danger');
 				break;
 			case 'c':
 			case 'g':
-				$('#yes').removeClass('btn-success');
-				$('#neutral').removeClass('btn-warning');
-				$('#no').addClass('btn-danger');
+				$yes.removeClass('btn-success');
+				$neutral.removeClass('btn-warning');
+				$no.addClass('btn-danger');
 				break;
 			case 'd':
 			case 'h':
-				$('#yes').addClass('btn-success');
-				$('#neutral').addClass('btn-warning');
-				$('#no').addClass('btn-danger');
+				$yes.addClass('btn-success');
+				$neutral.addClass('btn-warning');
+				$no.addClass('btn-danger');
 				break;
 		}
 	}
